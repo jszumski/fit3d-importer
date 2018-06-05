@@ -12,6 +12,11 @@
 		A009653820C23418006DA6F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A009653620C23418006DA6F1 /* Main.storyboard */; };
 		A009653A20C2341A006DA6F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A009653920C2341A006DA6F1 /* Assets.xcassets */; };
 		A009653D20C2341A006DA6F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A009653B20C2341A006DA6F1 /* LaunchScreen.storyboard */; };
+		A009654520C23B50006DA6F1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009654420C23B50006DA6F1 /* AuthViewController.swift */; };
+		A00A69F520C2579F00E9CF14 /* Fit3DAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A69F420C2579F00E9CF14 /* Fit3DAPI.swift */; };
+		A00A69F720C263E200E9CF14 /* DataImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A69F620C263E200E9CF14 /* DataImporter.swift */; };
+		A00A69FB20C376AB00E9CF14 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00A69FA20C376AB00E9CF14 /* HealthKit.framework */; };
+		A00A69FD20C3B0C800E9CF14 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A69FC20C3B0C800E9CF14 /* AsyncOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,12 @@
 		A009653920C2341A006DA6F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A009653C20C2341A006DA6F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A009653E20C2341A006DA6F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A009654420C23B50006DA6F1 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		A00A69F420C2579F00E9CF14 /* Fit3DAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fit3DAPI.swift; sourceTree = "<group>"; };
+		A00A69F620C263E200E9CF14 /* DataImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataImporter.swift; sourceTree = "<group>"; };
+		A00A69F820C376AB00E9CF14 /* Fit3DImporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fit3DImporter.entitlements; sourceTree = "<group>"; };
+		A00A69FA20C376AB00E9CF14 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		A00A69FC20C3B0C800E9CF14 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00A69FB20C376AB00E9CF14 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +52,7 @@
 			children = (
 				A009653120C23418006DA6F1 /* Fit3DImporter */,
 				A009653020C23418006DA6F1 /* Products */,
+				A00A69F920C376AB00E9CF14 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +69,25 @@
 			children = (
 				A009653220C23418006DA6F1 /* AppDelegate.swift */,
 				A009653420C23418006DA6F1 /* ViewController.swift */,
+				A009654420C23B50006DA6F1 /* AuthViewController.swift */,
+				A00A69F420C2579F00E9CF14 /* Fit3DAPI.swift */,
+				A00A69F620C263E200E9CF14 /* DataImporter.swift */,
+				A00A69FC20C3B0C800E9CF14 /* AsyncOperation.swift */,
 				A009653620C23418006DA6F1 /* Main.storyboard */,
 				A009653920C2341A006DA6F1 /* Assets.xcassets */,
 				A009653B20C2341A006DA6F1 /* LaunchScreen.storyboard */,
 				A009653E20C2341A006DA6F1 /* Info.plist */,
+				A00A69F820C376AB00E9CF14 /* Fit3DImporter.entitlements */,
 			);
 			path = Fit3DImporter;
+			sourceTree = "<group>";
+		};
+		A00A69F920C376AB00E9CF14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A00A69FA20C376AB00E9CF14 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +122,11 @@
 				TargetAttributes = {
 					A009652E20C23418006DA6F1 = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -136,7 +167,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A009653520C23418006DA6F1 /* ViewController.swift in Sources */,
+				A00A69F520C2579F00E9CF14 /* Fit3DAPI.swift in Sources */,
+				A009654520C23B50006DA6F1 /* AuthViewController.swift in Sources */,
 				A009653320C23418006DA6F1 /* AppDelegate.swift in Sources */,
+				A00A69FD20C3B0C800E9CF14 /* AsyncOperation.swift in Sources */,
+				A00A69F720C263E200E9CF14 /* DataImporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,9 +315,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Fit3DImporter/Fit3DImporter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QMJFKK3KVY;
 				INFOPLIST_FILE = Fit3DImporter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,9 +335,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Fit3DImporter/Fit3DImporter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QMJFKK3KVY;
 				INFOPLIST_FILE = Fit3DImporter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
